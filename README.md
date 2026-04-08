@@ -58,7 +58,8 @@ Instructions for setup and running the project will be added as development prog
 
 ## Authors
 
-* Your Name(s)
+* Duy Nguyen
+* Michael Bui
 
 ## Course Information
 
