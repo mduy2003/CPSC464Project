@@ -58,8 +58,8 @@ Instructions for setup and running the project will be added as development prog
 
 ## Authors
 
-* Duy Nguyen
-* Michael Bui
+* Duy Nguyen / @mduy2003@csu.fullerton.edu
+* Michael Bui / @buimichael@csu.fullerton.edu
 
 ## Course Information
 
