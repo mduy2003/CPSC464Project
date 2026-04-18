@@ -1,66 +1,108 @@
-# Study Group Finder System
+# Study Group Finder Prototype
 
 ## Overview
 
-The Study Group Finder System is a web-based application designed to help students create, discover, and join study groups for their courses. It provides a centralized platform for academic collaboration, especially useful in large or online classes where students may struggle to connect with peers.
+Study Group Finder is a prototype web application for CPSC 464 that helps students:
 
-## Features
+- Create an account and log in
+- Create study groups by course
+- Browse and search available groups
+- Join and leave study groups
 
-* User registration and authentication
-* Create study groups by course
-* Browse available study groups
-* Search for groups by course or keywords
-* Join and leave study groups
+This repository is focused on implementation of the prototype code only.
 
-## System Scope
+## Implemented MVP Features
 
-The system focuses on core group coordination and discovery. Advanced features such as messaging, scheduling, and file sharing are considered future enhancements.
+- User registration and login/logout
+- Session-based authentication
+- Create study groups (title, course code, description)
+- Browse all study groups
+- Search groups by course and keyword
+- Join and leave groups
+- SQLite persistence for users, groups, and memberships
 
-## Architecture
+## Scope Boundary
 
-The system follows a **client-server architecture** combined with a **layered structure**:
+Included in prototype:
 
-* **Client (Frontend):** Handles user interaction through a web interface
-* **Server (Backend):** Processes requests and manages business logic
-* **Layers:**
+- Core group discovery and membership workflows
 
-  * Presentation Layer (UI)
-  * Application Layer (logic and processing)
-  * Data Layer (database management)
+Not included yet:
 
-This architecture was selected to balance scalability, performance, and modifiability while keeping the system simple to implement.
+- Messaging
+- Notifications
+- LMS integration
+- Recommendation engine
+- Admin dashboard
 
-## Tech Stack (Planned)
+## Tech Stack
 
-* Frontend: HTML, CSS, JavaScript (or framework like React)
-* Backend: Node.js / Express (or similar)
-* Database: MySQL / MongoDB
+- Backend: Node.js + Express
+- Views/UI: EJS templates + CSS
+- Database: SQLite (`data/study_groups.db`)
+- Authentication: `bcryptjs` + `express-session`
 
-## Project Structure (Planned)
+## Project Structure
 
 ```
-/frontend
-/backend
-/database
-/docs
+src/
+  app.js
+  db.js
+  middleware/
+    auth.js
+  routes/
+    auth.js
+    groups.js
+views/
+  partials/
+  login.ejs
+  signup.ejs
+  groups.ejs
+  new-group.ejs
+public/
+  css/
+data/
+README.md
+package.json
 ```
 
 ## Getting Started
 
-Instructions for setup and running the project will be added as development progresses.
+### Prerequisites
 
-## Future Improvements
+- Node.js 18+ (or newer LTS)
 
-* Real-time messaging between group members
-* Notifications and alerts
-* Integration with learning management systems
-* Improved search and recommendation features
+### Install
+
+```bash
+npm install
+```
+
+### Run
+
+```bash
+npm start
+```
+
+Open:
+
+`http://localhost:3000`
+
+## Demo Checklist
+
+- Sign up a new user
+- Log in
+- Create a group
+- Search groups by course or keyword
+- Join a group
+- Leave a group
+- Log out
 
 ## Authors
 
-* Duy Nguyen / @mduy2003@csu.fullerton.edu
-* Michael Bui / @buimichael@csu.fullerton.edu
+* Duy Nguyen  / mduy2003@csu.fullerton.edu
+* Michael Bui / buimichael@csu.fullerton.edu
 
 ## Course Information
 
-CPSC 464 – System Architecture Project
+CPSC 464 - System Architecture Project

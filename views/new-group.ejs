@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<section class="card">
+  <h2>Create Study Group</h2>
+  <form action="/groups" method="POST" class="stack">
+    <label for="title">Group Title</label>
+    <input id="title" name="title" type="text" required />
+
+    <label for="courseCode">Course Code</label>
+    <input id="courseCode" name="courseCode" type="text" placeholder="e.g. CPSC 464" required />
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" placeholder="What topics is this group focused on?"></textarea>
+
+    <button type="submit">Create Group</button>
+  </form>
+</section>
+
+<%- include('partials/footer') %>

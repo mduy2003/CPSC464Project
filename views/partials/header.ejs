@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Group Finder Prototype</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1><a href="/groups">Study Group Finder</a></h1>
+      <nav>
+        <a href="/groups">Browse Groups</a>
+        <% if (currentUser) { %>
+          <a href="/groups/new">Create Group</a>
+          <form action="/logout" method="POST" class="inline-form">
+            <button type="submit">Logout</button>
+          </form>
+        <% } else { %>
+          <a href="/login">Login</a>
+          <a href="/signup">Sign Up</a>
+        <% } %>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <% if (message) { %>
+      <div class="flash"><%= message %></div>
+    <% } %>

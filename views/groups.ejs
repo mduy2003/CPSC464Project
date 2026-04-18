@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+
+<section class="card search-card">
+  <h2>Find Study Groups</h2>
+  <form action="/groups" method="GET" class="search-grid">
+    <div>
+      <label for="course">Course</label>
+      <input id="course" name="course" type="text" value="<%= filters.course %>" placeholder="CPSC 464" />
+    </div>
+    <div>
+      <label for="keyword">Keyword</label>
+      <input id="keyword" name="keyword" type="text" value="<%= filters.keyword %>" placeholder="midterm, architecture" />
+    </div>
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+<section class="group-list">
+  <% if (groups.length === 0) { %>
+    <div class="card">
+      <p>No groups found. Try changing your search or create a new one.</p>
+    </div>
+  <% } %>
+
+  <% groups.forEach((group) => { %>
+    <article class="card group-card">
+      <div class="group-top">
+        <div>
+          <h3><%= group.title %></h3>
+          <p class="course-pill"><%= group.course_code %></p>
+        </div>
+        <p><strong><%= group.member_count %></strong> members</p>
+      </div>
+
+      <p><%= group.description || 'No description provided.' %></p>
+      <p class="muted">Created by <%= group.owner_name %></p>
+
+      <% if (!currentUser) { %>
+        <a href="/login" class="button-link">Login to Join</a>
+      <% } else if (membershipSet.has(group.id)) { %>
+        <form action="/groups/<%= group.id %>/leave" method="POST" class="inline-form">
+          <button type="submit" class="secondary">Leave Group</button>
+        </form>
+      <% } else { %>
+        <form action="/groups/<%= group.id %>/join" method="POST" class="inline-form">
+          <button type="submit">Join Group</button>
+        </form>
+      <% } %>
+    </article>
+  <% }) %>
+</section>
+
+<%- include('partials/footer') %>
